@@ -22,9 +22,9 @@ public class FilmQueryApp {
   private void test() throws SQLException {
     Film film = db.findFilmById(1);
     Actor actor = db.findActorById(1);
-    List<Film> films = db.findFilmsByActorId(1);
-    for (Film flm : films) {
-		System.out.println(flm);
+    List<Actor> actors = db.findActorsByFilmId(1);
+    for (Actor actor2 : actors) {
+		System.out.println(actor2);
 	}
   }
 
@@ -37,7 +37,16 @@ public class FilmQueryApp {
   }
 
   private void startUserInterface(Scanner input) {
-    
+	System.out.println("Please make a selection");
+	int selection = input.nextInt();
+    switch (selection) {
+	case 1:
+		
+		break;
+
+	default:
+		break;
+	}
   }
 
 }

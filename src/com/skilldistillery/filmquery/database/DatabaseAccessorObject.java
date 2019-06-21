@@ -64,6 +64,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return actor;
 	}
+
 	@Override
 	public List<Film> findFilmsByActorId(int actorId) {
 		List<Film> films = new ArrayList<>();
@@ -101,9 +102,27 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public List<Actor> findActorsByFilmId(int filmId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Actor> findActorsByFilmId(int filmId) throws SQLException {
+		List<Actor> actors = new ArrayList<>();
+		String sql = "select actor.first_name, actor.last_name, film.title from actor join film_actor on actor.id = film_actor.actor_id join film on film.id = film_actor.film_id where film.id =?;";
+		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, filmId);
+		ResultSet actorResult = pstmt.executeQuery();
+		try {
+			while (actorResult.next()) {
+				String firstName = actorResult.getString(1);
+				String lastName = actorResult.getString(2);
+				Actor actor = new Actor(filmId, firstName, lastName);
+				actors.add(actor);
+			}
+		} finally {
+			actorResult.close();
+			pstmt.close();
+			conn.close();
+		}
+
+		return actors;
 	}
 
 }
