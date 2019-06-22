@@ -2,19 +2,18 @@ package com.skilldistillery.filmquery.entities;
 
 public class Film {
 	
-	/**
-	 * @param filmId
-	 * @param title
-	 * @param description
-	 * @param releaseYear
-	 * @param languageId
-	 * @param rentalDuration
-	 * @param rentalRate
-	 * @param length
-	 * @param replacementCost
-	 * @param rating
-	 * @param specialFeature
-	 */
+	private int filmId;
+	private String title;
+	private String description;
+	private String releaseYear;
+	private String languageId;
+	private int rentalDuration;
+	private double rentalRate;
+	private int length;
+	private double replacementCost;
+	private String rating;
+	private String specialFeature;
+	
 	public Film(int filmId, String title, String description, String releaseYear, String languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeature) {
 		super();
@@ -32,10 +31,7 @@ public class Film {
 	}
 	@Override
 	public String toString() {
-		return "Film [filmId=" + filmId + ", title=" + title + ", description=" + description + ", releaseYear="
-				+ releaseYear + ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate="
-				+ rentalRate + ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
-				+ ", specialFeature=" + specialFeature + "]";
+		return title + " | " + releaseYear + " | " + rating + " | " + description + " | ";
 	}
 	@Override
 	public int hashCode() {
@@ -174,16 +170,6 @@ public class Film {
 	public void setSpecialFeature(String specialFeature) {
 		this.specialFeature = specialFeature;
 	}
-	private int filmId;
-	private String title;
-	private String description;
-	private String releaseYear;
-	private String languageId;
-	private int rentalDuration;
-	private double rentalRate;
-	private int length;
-	private double replacementCost;
-	private String rating;
-	private String specialFeature;
+
 
 }
