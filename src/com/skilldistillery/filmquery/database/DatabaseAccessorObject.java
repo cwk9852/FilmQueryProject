@@ -134,7 +134,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public List<Film> searchFilmByKeyword(String keyword) throws SQLException {
+	public List<Film> findFilmsByKeyword(String keyword) throws SQLException {
 		List<Film> films = new ArrayList<>();
 		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 		String sql = "SELECT id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features FROM film WHERE film.title LIKE ? OR film.description LIKE ?;";

@@ -16,6 +16,6 @@ public interface DatabaseAccessor {
 	
 	public List<Film> findFilmsByActorId(int actorId) throws SQLException;
 	
-	public List<Film> searchFilmByKeyword(String keyword) throws SQLException;
+	public List<Film> findFilmsByKeyword(String keyword) throws SQLException;
 	
 }

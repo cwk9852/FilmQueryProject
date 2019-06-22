@@ -2,8 +2,6 @@ package com.skilldistillery.filmquery.app;
 
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
-
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
 import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
 import com.skilldistillery.filmquery.entities.Film;
@@ -30,7 +28,11 @@ public class FilmQueryApp {
 		case 1:
 			try {
 				Film film = db.findFilmById(InputHelper.getIntegerInput("Enter Film ID:"));
+				if (film != null) {
 				System.out.println(film.toString());
+				} else {
+					System.out.println();
+				}
 			} catch (NumberFormatException e) {
 				System.err.println("Error: invalid number");
 				return;
@@ -38,15 +40,17 @@ public class FilmQueryApp {
 			break;
 		case 2:
 			try {
-				List<Film> films = db.searchFilmByKeyword(InputHelper.getInput("Enter keyword:"));
-				for (Film film : films) {
-				
+				List<Film> films = db.findFilmsByKeyword(InputHelper.getInput("Enter Keyword:"));
+				if (films.size() > 0) {
+					for (Film film : films) {
+						System.out.println(film.toString());
+					}
+				} else {
+					System.out.println("No Films Found");
 				}
 			} catch (Exception e) {
 				System.err.println("Error: " + e.getMessage());
 				return;
-			} finally {
-				
 			}
 			break;
 		case 3:
@@ -55,16 +59,11 @@ public class FilmQueryApp {
 			break;
 		}
 	}
-
+}
 //	private void test() throws Exception {
 //	    Film film = db.findFilmById(1);
 //	    Actor actor = db.findActorById(1);
 //	    List<Actor> actors = db.findActorsByFilmId(1);
 //	    List<Film> films = db.findFilmsByActorId(1);
-//	    List<Film> films = db.searchFilmByKeyword("thrilling");
-//	    for (Film film : films) {
-//			System.out.println(film.toString());
-//		}
+//	    List<Film> films = db.searchFilmByKeyword("academy");
 //	}
-
-}
