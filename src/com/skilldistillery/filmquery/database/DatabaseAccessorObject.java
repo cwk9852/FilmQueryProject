@@ -54,7 +54,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	public Actor findActorById(int actorId) throws SQLException {
 		Actor actor = null;
 		Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-		String sql = "SELECT first_name, last_name FROM actor WHERE id = ?";
+		String sql = "SELECT id, first_name, last_name FROM actor WHERE id = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, actorId);
 		ResultSet rs = pstmt.executeQuery();
@@ -62,6 +62,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			if (rs.next()) {
 				actor = new Actor(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"));
 				actor.setFilms(findFilmsByActorId(actorId));
+				return actor;
 			}
 		} catch (SQLException e) {
 			processException(e);
@@ -97,6 +98,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				Film film = new Film(filmId, title, desc, releaseYear, langId, rentDur, rate, length, repCost, rating,
 						features);
 				films.add(film);
+				return films;
 			}
 		} catch (SQLException e) {
 			processException(e);

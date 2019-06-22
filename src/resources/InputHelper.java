@@ -1,4 +1,4 @@
-package com.skilldistillery.filmquery.util;
+package resources;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
