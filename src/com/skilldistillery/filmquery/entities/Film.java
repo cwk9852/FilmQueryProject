@@ -1,11 +1,9 @@
 package com.skilldistillery.filmquery.entities;
 
-import java.util.List;
-
 import resources.Language;
 
 public class Film {
-	
+
 	private int filmId;
 	private String title;
 	private String description;
@@ -17,8 +15,7 @@ public class Film {
 	private double replacementCost;
 	private String rating;
 	private String specialFeature;
-	private List<Actor> cast;
-	
+
 	public Film(int filmId, String title, String description, String releaseYear, String languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeature) {
 		super();
@@ -34,13 +31,17 @@ public class Film {
 		this.rating = rating;
 		this.specialFeature = specialFeature;
 	}
+
 	@Override
 	public String toString() {
 		return title + " | " + releaseYear + " | " + rating + " | " + description + " |";
 	}
+
 	public String toStringDetails() {
-		return title + " | " + releaseYear + " | " + rating + " | " + description + " | " + Language.name(languageId) + " |";
+		return title + " | " + releaseYear + " | " + rating + " | " + description + " | " + Language.name(languageId)
+				+ " |";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,6 +62,7 @@ public class Film {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -112,77 +114,93 @@ public class Film {
 			return false;
 		return true;
 	}
+
 	public int getFilmId() {
 		return filmId;
 	}
+
 	public void setFilmId(int filmId) {
 		this.filmId = filmId;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getReleaseYear() {
 		return releaseYear;
 	}
+
 	public void setReleaseYear(String releaseYear) {
 		this.releaseYear = releaseYear;
 	}
+
 	public String getLanguageId() {
 		return languageId;
 	}
+
 	public void setLanguageId(String languageId) {
 		this.languageId = languageId;
 	}
+
 	public int getRentalDuration() {
 		return rentalDuration;
 	}
+
 	public void setRentalDuration(int rentalDuration) {
 		this.rentalDuration = rentalDuration;
 	}
+
 	public double getRentalRate() {
 		return rentalRate;
 	}
+
 	public void setRentalRate(double rentalRate) {
 		this.rentalRate = rentalRate;
 	}
+
 	public int getLength() {
 		return length;
 	}
+
 	public void setLength(int length) {
 		this.length = length;
 	}
+
 	public double getReplacementCost() {
 		return replacementCost;
 	}
+
 	public void setReplacementCost(double replacementCost) {
 		this.replacementCost = replacementCost;
 	}
+
 	public String getRating() {
 		return rating;
 	}
+
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
+
 	public String getSpecialFeature() {
 		return specialFeature;
 	}
+
 	public void setSpecialFeature(String specialFeature) {
 		this.specialFeature = specialFeature;
-	}
-	public List<Actor> getCast() {
-		return cast;
-	}
-	public void setCast(List<Actor> cast) {
-		this.cast = cast;
 	}
 
 }

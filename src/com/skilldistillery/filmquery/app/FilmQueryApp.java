@@ -32,7 +32,7 @@ public class FilmQueryApp {
 				if (film != null) {
 					System.out.println(film.toStringDetails());
 					List<Actor> cast = db.findActorsByFilmId(film.getFilmId());
-					System.out.println("Lead Cast:");
+					System.out.println("Actors in Film:");
 					for (Actor actor : cast) {
 						System.out.println(actor.toString());
 					}
@@ -41,14 +41,13 @@ public class FilmQueryApp {
 				}
 			} catch (NumberFormatException e) {
 				System.err.println("Error: invalid number");
-				return;
 			}
 			break;
 		case 2:
 			try {
 				List<Film> films = db.findFilmsByKeyword(InputHelper.getInput("Enter Keyword:"));
 				if (films.size() > 0) {
-					System.out.println("Found:");
+					System.out.println("Films Found:");
 					for (Film film : films) {
 						System.out.println(film.toStringDetails());
 					}
@@ -61,9 +60,7 @@ public class FilmQueryApp {
 			}
 			break;
 		case 3:
-			break;
-		default:
-			break;
+			System.exit(0);
 		}
 	}
 
