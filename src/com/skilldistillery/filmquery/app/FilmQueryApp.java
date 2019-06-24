@@ -25,6 +25,8 @@ public class FilmQueryApp {
 	}
 
 	private void startUserInterface() throws Exception {
+		boolean on = true;
+		while (on) {
 		switch (InputHelper.getIntegerInput("1. Find Film By ID\n2. Find Films By Keyword\n3. Exit\n")) {
 		case 1:
 			try {
@@ -42,6 +44,7 @@ public class FilmQueryApp {
 			} catch (NumberFormatException e) {
 				System.err.println("Error: invalid number");
 			}
+			System.out.println();
 			break;
 		case 2:
 			try {
@@ -57,9 +60,12 @@ public class FilmQueryApp {
 			} catch (Exception e) {
 				System.err.println("Error: " + e.getMessage());
 			}
+			System.out.println();
+			break;
 		case 3:
-			System.exit(0);
+			on = false;
+			break;
 		}
 	}
-
+	}
 }
