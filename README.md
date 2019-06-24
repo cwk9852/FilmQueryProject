@@ -3,7 +3,7 @@
 ### Skill Distillery Week 7 Project
 
 ### Description
-Film Query App is a command-line application that retrieves data from a mySQL database using JDBC API. It has a switch based user menu that allows a user to search for a film by id, or search for a film by keyword. All JDBC is contained in the DatabaseAccessorObject class. For my user inputs I implemented an InputHelper class to display messages and parse input. To display the language, I used an ENUM that corresponded to the language ID and called it in my toStringDetails() method.
+Film Query App is a command-line application that retrieves data from a mySQL database using JDBC API. It has a switch based user menu that allows a user to search for a film by id, or search for a film by keyword. All JDBC code is contained in the DatabaseAccessorObject class. For my user inputs I implemented an InputHelper class to display messages and parse input. To display the language, I used an ENUM that corresponded to the language ID and called it in my toStringDetails() method.
 
 
 ### Lessons Learned
