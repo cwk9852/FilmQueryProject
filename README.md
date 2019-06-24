@@ -7,7 +7,7 @@ Film Query App is a command-line application that retrieves data from a mySQL da
 
 
 ### Lessons Learned
-I wished I had been able to devote more time to this project rather than just getting it to a meets requirements. However, that in itself is a lesson learned for me. Other lessons learned include relational databases, SQL, and JDBC API. I learned the different between prepared statements and statements. A prepared statement is compiled one time, even if a bind variable changes, it will use the statement again without compiling. Additionally, you can’t use a bind variable with statements, and they also make you vulnerable to SQL Injection.
+I wished I had been able to devote more time to this project rather than just getting it to a meets requirements. However, that in itself is a lesson learned for me. Other lessons learned include relational databases, SQL, and JDBC API. I learned the distinction between prepared statements and statements. A prepared statement is compiled one time, even if a bind variable changes, it will use the statement again without compiling. Additionally, you can’t use a bind variable with statements, and they also make you vulnerable to SQL Injection.
 
 
 ### Technologies Used
