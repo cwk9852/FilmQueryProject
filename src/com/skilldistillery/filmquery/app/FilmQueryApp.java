@@ -25,7 +25,7 @@ public class FilmQueryApp {
 	}
 
 	private void startUserInterface() throws Exception {
-		switch (InputHelper.getIntegerInput("1. Find Film By ID\n2. Find Films By Keyword\n3. Exit\n:")) {
+		switch (InputHelper.getIntegerInput("1. Find Film By ID\n2. Find Films By Keyword\n3. Exit\n")) {
 		case 1:
 			try {
 				Film film = db.findFilmById(InputHelper.getIntegerInput("Enter Film ID:"));
@@ -56,9 +56,7 @@ public class FilmQueryApp {
 				}
 			} catch (Exception e) {
 				System.err.println("Error: " + e.getMessage());
-				return;
 			}
-			break;
 		case 3:
 			System.exit(0);
 		}
